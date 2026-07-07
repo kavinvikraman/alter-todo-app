@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
+
+const API_BASE_URL = import.meta.env.VITE_API_URL || "/api";
 
 const initialLists = [
   {
@@ -29,7 +32,36 @@ function Dashboard() {
   const [lists, setLists] = useState(initialLists);
   const [selectedListId, setSelectedListId] = useState(initialLists[0].id);
   const [newTaskText, setNewTaskText] = useState("");
-  const user = JSON.parse(localStorage.getItem("user") || "null");
+  const [user, setUser] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("user") || "null");
+    } catch {
+      return null;
+    }
+  });
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (!token || user) {
+      return;
+    }
+
+    async function loadUser() {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/auth/me`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        setUser(response.data.user);
+        localStorage.setItem("user", JSON.stringify(response.data.user));
+      } catch {
+        setUser(null);
+      }
+    }
+
+    loadUser();
+  }, [user]);
 
   const currentList = lists.find((list) => list.id === selectedListId) || lists[0];
   const totalTasks = currentList.tasks.length;
@@ -129,7 +161,7 @@ function Dashboard() {
 
       <div className="main-content">
         <aside className="sidebar">
-          <div className="user-name">{user?.name || "Vignesh Kumar"}</div>
+          <div className="user-name">{user?.name || "User"}</div>
           <p className="section-title">MY LISTS</p>
 
           {lists.map((list) => (
