@@ -1,0 +1,254 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+  background-color: #f7f7f7;
+}
+
+/* ---------- Top bar ---------- */
+
+.topbar {
+  background-color: #1a1a1a;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar h1 {
+  color: white;
+  font-size: 24px;
+  margin: 0;
+  font-weight: 500;
+}
+
+.logout-btn {
+  background: none;
+  border: 1px solid #555;
+  color: #ccc;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.logout-btn:hover {
+  background-color: #333;
+  color: white;
+}
+
+.main-content {
+  display: flex;
+}
+
+/* ---------- Sidebar ---------- */
+
+.sidebar {
+  width: 220px;
+  background-color: white;
+  border-right: 1px solid #e0e0e0;
+  padding: 15px;
+  min-height: calc(100vh - 65px);
+}
+
+.user-name {
+  font-weight: bold;
+  padding: 10px 5px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 15px;
+}
+
+.section-title {
+  font-size: 11px;
+  color: #999;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 3px;
+}
+
+.list-item:hover {
+  background-color: #f2f2f2;
+}
+
+.list-item.active {
+  background-color: #eee;
+  font-weight: bold;
+  color: black;
+}
+
+.count {
+  color: #999;
+}
+
+.add-list-btn {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #777;
+  cursor: pointer;
+  padding: 8px 10px;
+}
+
+.add-list-btn:hover {
+  color: #333;
+}
+
+/* ---------- Tasks panel ---------- */
+
+.tasks-panel {
+  flex: 1;
+  padding: 25px 30px;
+}
+
+.tasks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.tasks-header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.edit-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-left: 8px;
+  color: #999;
+  font-size: 15px;
+}
+
+.add-task-box {
+  display: flex;
+  gap: 8px;
+}
+
+.add-task-box input {
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.add-task-box button {
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.add-task-box button:hover {
+  background-color: #333;
+}
+
+.task-list {
+  border-top: 1px solid #eee;
+}
+
+.task-row {
+  display: flex;
+  gap: 12px;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.task-row input[type="checkbox"] {
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+}
+
+.task-done {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.tags {
+  margin-top: 6px;
+  display: flex;
+  gap: 6px;
+}
+
+.tag {
+  background-color: #eee;
+  color: #666;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.empty-msg {
+  color: #999;
+  font-size: 14px;
+  padding: 20px 0;
+}
+
+.open-full-page-btn {
+  margin-top: 15px;
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.open-full-page-btn:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+/* ---------- Stats panel ---------- */
+
+.stats-panel {
+  width: 250px;
+  background-color: white;
+  border-left: 1px solid #e0e0e0;
+  padding: 20px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 6px 0;
+  color: #555;
+}
+
+.pending {
+  color: orange;
+  font-weight: bold;
+}
+
+.completed {
+  color: green;
+  font-weight: bold;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 12px 0;
+}
